@@ -24,10 +24,8 @@ $$\forall u, v \in V_1,\quad (u, v) \in E_1 \iff (f(u), f(v)) \in E_2.$$
 
 ### Graph Isomorphism
 
-Two graphs $G_1$ and $G_2$ are isomorphic if there exists a bijection $f: V_1 \to V_2$ such that the following condition holds:
-$$
-(u, v) \in E_1 \iff (f(u), f(v)) \in E_2.
-$$
+Two graphs $G_1$ and $G_2$ are isomorphic if there exists a bijection $f: V_1 \to V_2$ such that
+$$(u, v) \in E_1 \iff (f(u), f(v)) \in E_2.$$
 This condition ensures that the structure of the graphs is preserved under the mapping.
 
 ### Automorphism Group
