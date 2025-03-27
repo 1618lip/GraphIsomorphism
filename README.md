@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project demonstrates a graph isomorphism testing algorithm enhanced with symmetry reduction techniques using group theory. The project is primarily implemented in C++ for performance, with a Python-based visualization module to illustrate graph symmetries and the isomorphism testing process through interactive animations.
+This project demonstrates a graph isomorphism testing algorithm enhanced with symmetry reduction techniques using group theory. The project is primarily implemented in Go for performance, with a Python-based visualization module to illustrate graph symmetries and the isomorphism testing process through interactive animations.
 
 ## Problem Definition
 
@@ -55,38 +55,33 @@ These invariants are used as preliminary checks to quickly rule out non-isomorph
 
 ## Implementation
 
-### C++ Components
-
 - **Graph Representation:**  
-  Implemented in `Graph.h` and `Graph.cpp`, graphs are stored using an adjacency matrix.
-
+  Implemented in `graph.go`, graphs are stored as an adjacency matrix.
+  
 - **Isomorphism Testing:**  
-  In `Isomorphism.h` and `Isomorphism.cpp`, a backtracking algorithm tests for isomorphism by trying all vertex mappings while using basic degree invariants as a preliminary filter.
-
+  In `isomorphism.go`, a backtracking algorithm tests for graph isomorphism while utilizing basic invariants.
+  
 - **Automorphism Computation:**  
-  The functions in `Automorphism.h` and `Automorphism.cpp` currently return only the identity automorphism, serving as a starting point for future symmetry reductions.
-
+  In `automorphism.go`, a stub function returns the identity automorphism, which can later be expanded to include full symmetry reduction.
+  
 - **Main Application:**  
-  `main.cpp` creates sample graphs, runs the isomorphism test, and displays the automorphisms.
+  `main.go` creates sample graphs, runs the isomorphism test, and displays automorphisms.
 
-### Python Visualization
+### Manim Visualization
 
 - **Visualization Module:**  
-  `vis/visualization.py` uses NetworkX and Matplotlib to animate the layout of a sample graph, providing a visual understanding of graph structure and potential symmetry.
-
-
+  The `manim/visualization.py` script uses Manim to animate the graph structure (a triangle) and demonstrates a sample permutation (swapping vertices).
 
 ### Build & Run Instructions
 
-1. **Prerequisites:**  
-   - C++ compiler with C++11 support  
-   - CMake  
-   - Python 3 with `networkx` and `matplotlib` (install via `pip install networkx matplotlib`)
+#### Go Application
 
-2. **Building the C++ Application:**
+1. **Prerequisites:**  
+   - Install [Go](https://golang.org/dl/)
+
+2. **Building and Running:**
    ```bash
-   mkdir build
-   cd build
-   cmake ..
-   make
-   ./GraphIsomorphismProject
+   cd GraphIsomorphismGo
+   go build -o graph_iso 
+   .\graph_iso < test_cases/[choose test case] 
+   ``` 
