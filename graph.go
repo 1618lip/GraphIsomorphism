@@ -37,3 +37,12 @@ func (g *Graph) String() string {
 	}
 	return sb.String()
 }
+
+// Degree returns the degree of vertex v.
+func (g *Graph) Degree(v int) int {
+	sum := 0
+	for j := 0; j < g.NumVertices; j++ {
+		sum += g.AdjMatrix[v][j]
+	}
+	return sum
+}

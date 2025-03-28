@@ -8,14 +8,13 @@ import (
 	"strings"
 )
 
-// readGraph reads a graph from STDIN in LeetCode‑style format.
+// readGraph reads a graph from STDIN
 // It expects:
 //   - First non-empty line: "n m" (number of vertices and edges)
 //   - Next m lines: "u v" (each edge; vertices may be 0-indexed or 1-indexed)
 //
-// It determines indexing by checking the maximum vertex label.
+// It auto-detects indexing by examining the maximum vertex label.
 func readGraph(scanner *bufio.Scanner) *Graph {
-	// Read the header line.
 	var line string
 	for scanner.Scan() {
 		line = strings.TrimSpace(scanner.Text())
@@ -39,7 +38,6 @@ func readGraph(scanner *bufio.Scanner) *Graph {
 		os.Exit(1)
 	}
 
-	// Read m edge lines.
 	var edges [][2]int
 	maxLabel := 0
 	for i := 0; i < m; i++ {
@@ -72,7 +70,6 @@ func readGraph(scanner *bufio.Scanner) *Graph {
 		}
 	}
 
-	// Determine if vertices are 0-indexed or 1-indexed.
 	adjust := false
 	if maxLabel == n {
 		adjust = true // 1-indexed
@@ -97,7 +94,7 @@ func readGraph(scanner *bufio.Scanner) *Graph {
 }
 
 func main() {
-	fmt.Println("Graph Isomorphism Checker in Go")
+	fmt.Println("Graph Isomorphism Checker with Automorphism-based Symmetry Breaking (Go)")
 	fmt.Println("Input format for each graph:")
 	fmt.Println("  First line: n m (number of vertices and edges)")
 	fmt.Println("  Next m lines: u v (each edge; vertices can be 0-indexed or 1-indexed)")
@@ -116,9 +113,9 @@ func main() {
 	fmt.Println("\nGraph 2:")
 	fmt.Println(g2)
 
-	if areIsomorphic(g1, g2) {
-		fmt.Println("\nThe graphs are isomorphic.")
-		if mapping, ok := findIsomorphism(g1, g2); ok {
+	if areIsomorphicSym(g1, g2) {
+		fmt.Println("\nThe graphs are isomorphic (using symmetry breaking).")
+		if mapping, ok := findIsomorphismSym(g1, g2); ok {
 			fmt.Println("A valid mapping from Graph 1 to Graph 2:")
 			for i, v := range mapping {
 				fmt.Printf("  Vertex %d in Graph 1 -> Vertex %d in Graph 2\n", i, v)
