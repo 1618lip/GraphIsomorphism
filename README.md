@@ -1,37 +1,3 @@
-
-
-### Graph Isomorphism
-
-Two graphs $G_1$ and $G_2$ are isomorphic if there exists a bijection $f: V_1 \to V_2$ such that
-$$(u, v) \in E_1 \iff (f(u), f(v)) \in E_2.$$
-This condition ensures that the structure of the graphs is preserved under the mapping.
-
-### Automorphism Group
-
-An automorphism of a graph $G = (V, E)$ is an isomorphism from $G$ to itself. The set of all automorphisms forms a group, denoted as $\text{Aut}(G)$, under function composition. For any $\phi, \psi \in \text{Aut}(G)$,
-
-$$\phi \circ \psi \in \text{Aut}(G) \quad \text{and} \quad \phi^{-1} \in \text{Aut}(G).$$
-The identity automorphism $\text{id}$ satisfies:
-$$\text{id}(v) = v \quad \forall v \in V.$$
-
-### Symmetry Reduction
-
-The automorphism group can be used to partition the vertex set $V$ into orbits. For a vertex $v \in V$, its orbit under $\text{Aut}(G)$ is defined as:
-
-$$\mathcal{O}(v) = \{\phi(v) \mid \phi \in \text{Aut}(G)\}$$
-
-By selecting one representative from each orbit, we reduce the number of candidate mappings when checking for isomorphism. This is particularly useful in backtracking algorithms, where symmetry reduction can lead to significant improvements in performance.
-
-### Invariant Properties
-
-Graph invariants are properties that remain unchanged under any isomorphism. Common invariants include:
-- **Degree Sequence:** The list of vertex degrees.
-- **Eigenvalues of the Adjacency Matrix:** If $A$ is the adjacency matrix of $G$, its eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_n$ remain invariant under isomorphism.
-- **Cycle Counts:** The number of cycles of a given length in the graph.
-
-These invariants are used as preliminary checks to quickly rule out non-isomorphic graph pairs before attempting full isomorphism testing.
-
-
 # Graph Isomorphism with Automorphism-based Symmetry Breaking in Go
 
 ## Motivation
