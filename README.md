@@ -1,4 +1,9 @@
-# Graph Isomorphism with Automorphism-based Symmetry Breaking in Go
+<h1 align='center'>
+  Graph Isomorphism with Automorphism-based Symmetry Breaking
+</h1>
+<p align='center'>
+  <a href="#"><img alt="" src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" /></a>
+</p>
 
 ## Motivation
 
